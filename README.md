@@ -51,9 +51,9 @@ Nesse projeto, você será capaz de:
 ### Antes de começar a desenvolver:
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-project-starwars-datatable-hooks.git`.
+  * `git clone git@github.com:tryber/sd-07-project-starwars-datatable-hooks.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `sd-0x-project-starwars-datatable-hooks`
+    * `sd-07-project-starwars-datatable-hooks`
 
 2. Instale as dependências
   * `npm install`
@@ -101,13 +101,13 @@ export default StarWarsContext;
   * Usando o exemplo anterior: `git push -u origin joaozinho-react-context-hooks-starwars-datatable-filters`
 
 7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-project-starwars-datatable-hooks/pulls)
+  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-07-project-starwars-datatable-hooks/pulls)
   * Clique no botão verde _"New pull request"_
   * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
   * Clique no botão verde _"Create pull request"_
   * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-project-starwars-datatable-hooks/pulls) e confira que o seu _Pull Request_ está criado
+  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-07-project-starwars-datatable-hooks/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
@@ -119,15 +119,18 @@ Você vai desenvolver uma lista com filtros de planetas do universo de StarWars 
 
 ## COMO DESENVOLVER
 
-Este repositório já contém um _template_ de uma aplicação React criado e configurado. Após clonar o projeto e instalar as dependências (mais sobre isso abaixo), você **poderá** copiar os arquivos que criou ou modificou no projeto anterior para este repositório. Veja [aqui](#copiando-os-arquivos-entre-projetos) instruções de como fazer isso de uma forma fácil.
+Você deverá cumprir os requisitos do projeto utilizando a **Context API** e **componentes funcionais com Hooks**.
 
-Caso não tenha realizado o projeto anterior, você deverá implementar todos os requisitos obrigatórios do projeto anterior e os novos requisitos do projeto atual. Contudo, não é necessário primeiro desenvolver o projeto com Redux para então substituí-lo por **Context API e Hooks**.
+#### Observação técnica
+Para que avaliador consiga acessar o seu contexto de forma correta, coloque o Provider dentro do `App.js`.
+
+Isso é necessário porque o testes renderizam diretamente o `App` sem passar pelo arquivo `index.js`. Se você colocar o Provider no index, isso fará com que os testes não funcionem.
 
 ---
 
 ## DATA DE ENTREGA
 
-O projeto deverá ser entregue até a seguinte data para a avaliação final: ``DD/MM/YYYY - 00:00h``.
+O projeto deverá ser entregue até a seguinte data para a avaliação final: ``29/01/2021 - 14:00h``.
 
 ---
 
@@ -150,6 +153,8 @@ npm run lint
 ### 1. Faça uma requisição para o endpoint `/planets` da API de Star Wars e preencha uma tabela com os dados retornados, com exceção dos da coluna `residents`
 
 A tabela deve ser renderizada por um componente chamado `<Table />`. Os dados recebidos da API devem ser salvos num campo chamado `data` do contexto e é daí que a tabela deve lê-los. A requisição deve ser feita num componente separado do componente da tabela.
+
+A API a ser consultada está [nesse link](https://swapi-trybe.herokuapp.com/api/planets/). Ou seja, você deverá fazer um fetch para a URL `https://swapi-trybe.herokuapp.com/api/planets/`
 
 A tabela deve ter uma primeira linha com os headers e as demais com as informações de cada campo.
 
