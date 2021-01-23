@@ -5,6 +5,7 @@ import starWarsPlanetsAPI from '../services/starWarsPlanetsAPI';
 
 function Provider({ children }) {
   const [planets, setPlanets] = useState([]);
+  const [search, setSearch] = useState('');
 
   const fetchPlanets = async () => {
     setPlanets(await starWarsPlanetsAPI());
@@ -15,7 +16,7 @@ function Provider({ children }) {
   }, []);
 
   return (
-    <StarWarsContext.Provider value={ { planets } }>
+    <StarWarsContext.Provider value={ { planets, search, setSearch } }>
       {children}
     </StarWarsContext.Provider>
   );

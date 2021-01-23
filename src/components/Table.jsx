@@ -1,8 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import StarWarsContext from '../context/StarWarsContext';
 
 function Table() {
-  const { planets } = useContext(StarWarsContext);
+  const { planets, search } = useContext(StarWarsContext);
+  const [filteredPlanets, setFilteredPlanets] = useState(planets);
+
+  useEffect(() => {
+    const magicNumber = 0;
+    if (planets.length > magicNumber) {
+      setFilteredPlanets(planets);
+    }
+  }, [planets]);
+
+  useEffect(() => {
+    const filtered = planets.filter((planet) => planet.name.toLowerCase()
+      .includes(search.toLowerCase()));
+    setFilteredPlanets(filtered);
+  }, [search]);
 
   return (
     <table className="table">
@@ -24,7 +38,7 @@ function Table() {
         </tr>
       </thead>
       <tbody>
-        {planets.map((planet) => (
+        {filteredPlanets.map((planet) => (
           <tr key={ planet.name }>
             <td>{planet.name}</td>
             <td>{planet.rotation_period}</td>
