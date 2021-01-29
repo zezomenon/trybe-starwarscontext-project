@@ -11,15 +11,9 @@ function FilterNumericValues() {
     columns,
     comparison,
     valueNumber,
+    columnsTable,
+    setColumnsTable,
   } = useContext(StarWarsContext);
-
-  const columnsTable = [
-    'population',
-    'orbital_period',
-    'diameter',
-    'rotation_period',
-    'surface_water',
-  ];
 
   const comparisonTable = [
     'maior que',
@@ -39,6 +33,12 @@ function FilterNumericValues() {
     }
   };
 
+  const removeColumn = (column) => {
+    const arrColumn = columnsTable.filter((item) => item !== column);
+    setColumnsTable(arrColumn);
+  };
+
+  // source: https://medium.com/javascript-in-plain-english/how-to-remove-an-element-from-array-in-javascript-c968b920a03d
   const handleClick = () => {
     if (comparison === 'maior que') {
       const filtered = planetsData.filter(
@@ -58,6 +58,8 @@ function FilterNumericValues() {
       );
       setFiltersData(filtered);
     }
+
+    removeColumn(columns);
   };
 
   return (
@@ -69,7 +71,7 @@ function FilterNumericValues() {
           name="setColumns"
           onChange={ handleChange }
         >
-          <option selected>Escolha...</option>
+          <option disabled selected>Escolha...</option>
           {columnsTable.map((column) => (
             <option key={ column } value={ column }>{ column }</option>))}
         </select>
@@ -81,7 +83,7 @@ function FilterNumericValues() {
           name="setComparison"
           onChange={ handleChange }
         >
-          <option selected>Escolha...</option>
+          <option disabled selected>Escolha...</option>
           {comparisonTable.map((item) => (
             <option key={ item } value={ item }>{ item }</option>))}
         </select>

@@ -11,6 +11,13 @@ function Provider({ children }) {
   const [columns, setColumns] = useState('');
   const [comparison, setComparison] = useState('');
   const [valueNumber, setValueNumber] = useState();
+  const [columnsTable, setColumnsTable] = useState([
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ]);
 
   const fetchPlanets = async () => {
     setPlanetsData(await starWarsPlanetsAPI());
@@ -35,6 +42,8 @@ function Provider({ children }) {
     setComparison,
     valueNumber,
     setValueNumber,
+    columnsTable,
+    setColumnsTable,
   };
 
   return (
