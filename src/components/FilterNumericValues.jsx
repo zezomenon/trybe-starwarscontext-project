@@ -71,7 +71,7 @@ function FilterNumericValues() {
           name="setColumns"
           onChange={ handleChange }
         >
-          <option disabled selected>Escolha...</option>
+          {/* <option disabled selected>Escolha...</option> */}
           {columnsTable.map((column) => (
             <option key={ column } value={ column }>{ column }</option>))}
         </select>
