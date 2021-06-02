@@ -19,16 +19,19 @@ function Search() {
   return (
     <div>
       <div className="input-group mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Pesquisar"
-          aria-label="Username"
-          name="searchInput"
-          data-testid="name-filter"
-          value={ searchInput }
-          onChange={ handleChange }
-        />
+        <label htmlFor="searchInput" className="form-control">
+          Nome planeta:
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Pesquisar"
+            aria-label="Username"
+            name="searchInput"
+            data-testid="name-filter"
+            value={ searchInput }
+            onChange={ handleChange }
+          />
+        </label>
       </div>
     </div>
   );

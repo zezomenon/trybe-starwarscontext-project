@@ -65,46 +65,50 @@ function FilterNumericValues() {
   return (
     <div>
       <div>
-        <select
-          className="form-select"
-          data-testid="column-filter"
-          name="setColumns"
-          onChange={ handleChange }
-        >
-          {/* <option disabled selected>Escolha...</option> */}
-          {columnsTable.map((column) => (
-            <option key={ column } value={ column }>{ column }</option>))}
-        </select>
-      </div>
-      <div>
-        <select
-          className="form-select"
-          data-testid="comparison-filter"
-          name="setComparison"
-          onChange={ handleChange }
-        >
-          <option disabled selected>Escolha...</option>
-          {comparisonTable.map((item) => (
-            <option key={ item } value={ item }>{ item }</option>))}
-        </select>
+        <label htmlFor="setColumns" className="form-control">
+          Escolha por:
+          <select
+            className="form-select"
+            data-testid="column-filter"
+            name="setColumns"
+            onChange={ handleChange }
+          >
+            {columnsTable.map((column) => (
+              <option key={ column } value={ column }>{ column }</option>))}
+          </select>
+          <select
+            className="form-select"
+            data-testid="comparison-filter"
+            name="setComparison"
+            onChange={ handleChange }
+          >
+            {comparisonTable.map((item) => (
+              <option key={ item } value={ item }>{ item }</option>))}
+          </select>
+        </label>
       </div>
       <div className="input-group mb-3">
-        <input
-          type="number"
-          className="form-control"
-          data-testid="value-filter"
-          name="setValueNumber"
-          onChange={ handleChange }
-        />
+        <label htmlFor="setValueNumber" className="form-control">
+          Informe um valor:
+          <input
+            type="number"
+            className="form-control"
+            data-testid="value-filter"
+            name="setValueNumber"
+            onChange={ handleChange }
+          />
+        </label>
       </div>
-      <button
-        type="button"
-        className="btn btn-light"
-        data-testid="button-filter"
-        onClick={ handleClick }
-      >
-        Button
-      </button>
+      <div className="form-control">
+        <button
+          type="button"
+          className="btn btn-primary"
+          data-testid="button-filter"
+          onClick={ handleClick }
+        >
+          Pesquisar
+        </button>
+      </div>
     </div>
   );
 }
